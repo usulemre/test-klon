@@ -28,15 +28,17 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   return (
     <form onSubmit={submit} className="w-full">
-      <div className="flex flex-col gap-2 sm:flex-row">
+      <div className="flex flex-col gap-2.5 sm:flex-row">
         <input
           type="email"
+          inputMode="email"
+          autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-posta adresiniz"
-          className="h-11 flex-1 rounded-full border border-white/15 bg-white/10 px-4 text-sm text-white placeholder:text-navy-200 outline-none focus:border-gold-400"
+          className="h-12 w-full flex-1 rounded-full border border-white/20 bg-white/10 px-5 text-base text-white placeholder:text-navy-200 outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/30 sm:text-sm"
         />
-        <button type="submit" className="h-11 shrink-0 rounded-full bg-gold-500 px-5 text-sm font-semibold text-navy-950 transition-colors hover:bg-gold-400">
+        <button type="submit" className="h-12 shrink-0 rounded-full bg-gold-500 px-6 text-base font-semibold text-navy-950 transition-colors hover:bg-gold-400 sm:text-sm">
           Abone Ol
         </button>
       </div>
