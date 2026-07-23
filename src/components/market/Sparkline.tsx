@@ -34,7 +34,8 @@ export function Sparkline({
 
   const line = points.map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(2)} ${y.toFixed(2)}`).join(" ");
   const area = `${line} L${points[points.length - 1][0].toFixed(2)} ${h} L${points[0][0].toFixed(2)} ${h} Z`;
-  const gid = `spark-${color.replace("#", "")}-${Math.round(width)}x${Math.round(height)}`;
+  // id yalnızca geçerli karakterlerden oluşmalı (CSS değişkeni parantez/tire içerir → url() bozulur)
+  const gid = `spark-${color.replace(/[^a-zA-Z0-9]/g, "")}-${Math.round(width)}x${Math.round(height)}`;
 
   return (
     <svg
