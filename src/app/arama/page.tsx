@@ -5,7 +5,7 @@ import { SearchClient } from "./SearchClient";
 
 export const metadata: Metadata = {
   title: "Arama",
-  description: "Vega Portföy site içi arama.",
+  description: "Test Klon Portföy site içi arama.",
   robots: { index: false, follow: true },
   alternates: { canonical: "/arama" },
 };

@@ -3,7 +3,7 @@ import { PageHero, Section } from "@/components/ui/primitives";
 
 export const metadata: Metadata = {
   title: "Yönetim Kurulu",
-  description: "Vega Portföy yönetim kurulu ve üst yönetim ekibi.",
+  description: "Test Klon Portföy yönetim kurulu ve üst yönetim ekibi.",
   alternates: { canonical: "/hakkimizda/yonetim-kurulu" },
 };
 

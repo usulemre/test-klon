@@ -14,9 +14,9 @@ export const legalDocs: Record<string, LegalDoc> = {
     slug: "kvkk-politikasi",
     title: "KVKK Politikası",
     desc: "Kişisel Verilerin Korunması Politikası",
-    intro: "Vega Portföy Yönetimi A.Ş. olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verilerinizin güvenliğine önem veriyoruz.",
+    intro: "Test Klon Portföy Yönetimi A.Ş. olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verilerinizin güvenliğine önem veriyoruz.",
     sections: [
-      { heading: "Veri Sorumlusu", body: "Kişisel verileriniz, veri sorumlusu sıfatıyla Vega Portföy Yönetimi A.Ş. tarafından işlenmektedir." },
+      { heading: "Veri Sorumlusu", body: "Kişisel verileriniz, veri sorumlusu sıfatıyla Test Klon Portföy Yönetimi A.Ş. tarafından işlenmektedir." },
       { heading: "İşlenen Veriler ve Amaçlar", body: "Kimlik, iletişim ve finansal verileriniz; hizmet sunumu, mevzuata uyum ve iletişim amaçlarıyla işlenir." },
       { heading: "Haklarınız", body: "KVKK'nın 11. maddesi kapsamında verilerinize erişim, düzeltme, silme ve işlemeye itiraz haklarına sahipsiniz." },
     ],
@@ -39,7 +39,7 @@ export const legalDocs: Record<string, LegalDoc> = {
     intro: "Bu web sitesini kullanarak aşağıdaki koşulları kabul etmiş sayılırsınız.",
     sections: [
       { heading: "Genel", body: "Site içeriği yalnızca bilgilendirme amaçlıdır ve yatırım danışmanlığı teşkil etmez." },
-      { heading: "Fikri Mülkiyet", body: "Sitedeki tüm içerik, marka ve görseller Vega Portföy'e aittir ve izinsiz kullanılamaz." },
+      { heading: "Fikri Mülkiyet", body: "Sitedeki tüm içerik, marka ve görseller Test Klon Portföy'e aittir ve izinsiz kullanılamaz." },
       { heading: "Sorumluluğun Sınırlandırılması", body: "Sitede yer alan bilgilerin güncelliği ve doğruluğu için azami özen gösterilse de, yatırım kararlarının sorumluluğu yatırımcıya aittir." },
     ],
   },
@@ -51,7 +51,7 @@ export const legalDocs: Record<string, LegalDoc> = {
     sections: [
       { heading: "Amaç", body: "Kişisel verilerinizin hangi amaçlarla işlendiği konusunda sizi bilgilendirmektir." },
       { heading: "Aktarım", body: "Verileriniz yalnızca yasal yükümlülükler ve hizmet gereklilikleri çerçevesinde yetkili kurum ve kuruluşlara aktarılabilir." },
-      { heading: "İletişim", body: "Talepleriniz için kvkk@vegaportfoy.com adresinden bize ulaşabilirsiniz." },
+      { heading: "İletişim", body: "Talepleriniz için kvkk@testklonportfoy.com adresinden bize ulaşabilirsiniz." },
     ],
   },
   "risk-bildirim-formu": {

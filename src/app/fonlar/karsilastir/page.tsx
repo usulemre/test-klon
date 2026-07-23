@@ -4,7 +4,7 @@ import { FundCompare } from "@/components/funds/FundCompare";
 
 export const metadata: Metadata = {
   title: "Fon Karşılaştırma",
-  description: "Vega Portföy fonlarını risk, getiri, yönetim ücreti ve büyüklük açısından yan yana karşılaştırın.",
+  description: "Test Klon Portföy fonlarını risk, getiri, yönetim ücreti ve büyüklük açısından yan yana karşılaştırın.",
   alternates: { canonical: "/fonlar/karsilastir" },
 };
 

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "portföy yönetimi",
     "serbest fon",
     "yatırım fonları",
-    "Vega Portföy",
+    "Test Klon Portföy",
     "bireysel portföy yönetimi",
     "kurumsal portföy yönetimi",
   ],

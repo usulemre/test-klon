@@ -4,12 +4,12 @@ import { funds } from "@/lib/funds/funds";
 
 export const metadata: Metadata = {
   title: "Duyurular",
-  description: "Vega Portföy şirket ve fon duyuruları — merkezi duyuru merkezi.",
+  description: "Test Klon Portföy şirket ve fon duyuruları — merkezi duyuru merkezi.",
   alternates: { canonical: "/kurumsal/duyurular" },
 };
 
 const corporate = [
-  { date: "20.07.2026", title: "Vega Portföy 2025 yıllık faaliyet raporu yayımlandı", tag: "Kurumsal" },
+  { date: "20.07.2026", title: "Test Klon Portföy 2025 yıllık faaliyet raporu yayımlandı", tag: "Kurumsal" },
   { date: "10.07.2026", title: "Yeni yatırımcı portalı hakkında bilgilendirme", tag: "Kurumsal" },
 ];
 

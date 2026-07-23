@@ -15,8 +15,8 @@ export type SearchEntry = {
 };
 
 const pages: SearchEntry[] = [
-  { title: "Ana Sayfa", href: "/", type: "Sayfa", description: "Vega Portföy kurumsal ana sayfa" },
-  { title: "Hakkımızda", href: "/hakkimizda", type: "Sayfa", description: "Vega Portföy hakkında" },
+  { title: "Ana Sayfa", href: "/", type: "Sayfa", description: "Test Klon Portföy kurumsal ana sayfa" },
+  { title: "Hakkımızda", href: "/hakkimizda", type: "Sayfa", description: "Test Klon Portföy hakkında" },
   { title: "Kurumsal", href: "/hakkimizda/kurumsal", type: "Sayfa", description: "Kurumsal bilgiler" },
   { title: "Misyon & Vizyon", href: "/hakkimizda/misyon-vizyon", type: "Sayfa", description: "Değerlerimiz ve hedeflerimiz" },
   { title: "Ortaklık Yapısı", href: "/hakkimizda/ortaklik-yapisi", type: "Sayfa", description: "Sermaye ve pay yapısı" },

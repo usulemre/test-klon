@@ -5,7 +5,7 @@ import { mainNav, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Hakkımızda",
-  description: "Vega Portföy Yönetimi A.Ş. — kurumsal yapımız, değerlerimiz, yönetim kurulumuz ve kariyer fırsatları.",
+  description: "Test Klon Portföy Yönetimi A.Ş. — kurumsal yapımız, değerlerimiz, yönetim kurulumuz ve kariyer fırsatları.",
   alternates: { canonical: "/hakkimizda" },
 };
 

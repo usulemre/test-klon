@@ -4,7 +4,7 @@ import { funds } from "@/lib/funds/funds";
 
 export const metadata: Metadata = {
   title: "Fon Bültenleri",
-  description: "Her Vega Portföy fonunun aylık performans ve strateji bültenleri.",
+  description: "Her Test Klon Portföy fonunun aylık performans ve strateji bültenleri.",
   alternates: { canonical: "/bultenler/fon-bultenleri" },
 };
 

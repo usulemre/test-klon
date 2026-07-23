@@ -4,12 +4,12 @@ import { ArticleGrid } from "@/components/content/ArticleGrid";
 
 export const metadata: Metadata = {
   title: "Basın Odası",
-  description: "Vega Portföy kurumsal haberleri, basın bültenleri ve medya kiti.",
+  description: "Test Klon Portföy kurumsal haberleri, basın bültenleri ve medya kiti.",
   alternates: { canonical: "/kurumsal/basin-odasi" },
 };
 
 const news = [
-  { title: "Vega Portföy yönetilen varlık büyüklüğünde rekor kırdı", excerpt: "Toplam AUM 14 milyar TL'yi aştı.", date: "15.07.2026", tag: "Basın Bülteni", readTime: "2 dk" },
+  { title: "Test Klon Portföy yönetilen varlık büyüklüğünde rekor kırdı", excerpt: "Toplam AUM 14 milyar TL'yi aştı.", date: "15.07.2026", tag: "Basın Bülteni", readTime: "2 dk" },
   { title: "Parla Serbest Fon ödül aldı", excerpt: "Yılın serbest fonu kategorisinde finalist.", date: "01.07.2026", tag: "Haber", readTime: "3 dk" },
   { title: "Sürdürülebilirlik raporumuz yayımlandı", excerpt: "ESG yaklaşımımızı detaylandırdık.", date: "20.06.2026", tag: "Basın Bülteni", readTime: "2 dk" },
 ];

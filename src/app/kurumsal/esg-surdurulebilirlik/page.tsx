@@ -3,7 +3,7 @@ import { ContentPage } from "@/components/ui/ContentPage";
 
 export const metadata: Metadata = {
   title: "ESG / Sürdürülebilirlik",
-  description: "Vega Portföy'ün çevresel, sosyal ve yönetişim (ESG) yaklaşımı ve sürdürülebilir yatırım politikası.",
+  description: "Test Klon Portföy'ün çevresel, sosyal ve yönetişim (ESG) yaklaşımı ve sürdürülebilir yatırım politikası.",
   alternates: { canonical: "/kurumsal/esg-surdurulebilirlik" },
 };
 

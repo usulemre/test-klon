@@ -3,12 +3,12 @@ import { ContentPage } from "@/components/ui/ContentPage";
 
 export const metadata: Metadata = {
   title: "Ortaklık Yapısı",
-  description: "Vega Portföy Yönetimi A.Ş. sermaye ve pay sahipliği yapısı.",
+  description: "Test Klon Portföy Yönetimi A.Ş. sermaye ve pay sahipliği yapısı.",
   alternates: { canonical: "/hakkimizda/ortaklik-yapisi" },
 };
 
 const owners = [
-  { name: "Vega Holding A.Ş.", share: 68 },
+  { name: "Test Klon Holding A.Ş.", share: 68 },
   { name: "Kurucu Ortaklar", share: 22 },
   { name: "Diğer", share: 10 },
 ];

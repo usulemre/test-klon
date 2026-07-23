@@ -5,7 +5,7 @@ import { funds } from "@/lib/funds/funds";
 
 export const metadata: Metadata = {
   title: "Fonlar",
-  description: "Vega Portföy serbest ve hisse senedi fonları — canlı pay fiyatları, performans ve dokümanlar.",
+  description: "Test Klon Portföy serbest ve hisse senedi fonları — canlı pay fiyatları, performans ve dokümanlar.",
   alternates: { canonical: "/fonlar" },
 };
 

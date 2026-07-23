@@ -3,7 +3,7 @@ import { PageHero, Section } from "@/components/ui/primitives";
 
 export const metadata: Metadata = {
   title: "Günlük / Haftalık / Aylık Bültenler",
-  description: "Vega Portföy piyasa bültenleri — günlük, haftalık ve aylık değerlendirmeler.",
+  description: "Test Klon Portföy piyasa bültenleri — günlük, haftalık ve aylık değerlendirmeler.",
   alternates: { canonical: "/bultenler/gunluk-haftalik-aylik" },
 };
 

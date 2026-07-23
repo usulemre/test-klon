@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Kurumsal",
-  description: "Vega Portföy Yönetimi A.Ş. kurumsal kimliği, faaliyet alanları ve düzenleyici çerçevesi.",
+  description: "Test Klon Portföy Yönetimi A.Ş. kurumsal kimliği, faaliyet alanları ve düzenleyici çerçevesi.",
   alternates: { canonical: "/hakkimizda/kurumsal" },
 };
 
@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <ContentPage
       title="Kurumsal"
-      desc="Vega Portföy Yönetimi A.Ş. hakkında kurumsal bilgiler."
+      desc="Test Klon Portföy Yönetimi A.Ş. hakkında kurumsal bilgiler."
       pathname="/hakkimizda/kurumsal"
       intro={`${site.legalName}, Sermaye Piyasası Kurulu (SPK) düzenlemeleri çerçevesinde portföy yönetimi ve yatırım fonu kuruculuğu faaliyetlerini yürüten bir portföy yönetim şirketidir.`}
       cta={{ label: "İletişime Geçin", href: "/iletisim" }}

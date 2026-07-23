@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   description:
-    "Vega Portföy Yönetimi — serbest fonlar, bireysel ve kurumsal portföy yönetimi, alternatif yatırımlar. Canlı fon fiyatları ve piyasa verileri.",
+    "Test Klon Portföy Yönetimi — serbest fonlar, bireysel ve kurumsal portföy yönetimi, alternatif yatırımlar. Canlı fon fiyatları ve piyasa verileri.",
   alternates: { canonical: "/" },
 };
 

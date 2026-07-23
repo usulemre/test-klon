@@ -7,7 +7,7 @@ import { legalDocs } from "@/lib/legal";
 
 export const metadata: Metadata = {
   title: "Site Haritası",
-  description: "Vega Portföy web sitesinin tüm sayfalarına erişilebilir HTML site haritası.",
+  description: "Test Klon Portföy web sitesinin tüm sayfalarına erişilebilir HTML site haritası.",
   alternates: { canonical: "/site-haritasi" },
 };
 

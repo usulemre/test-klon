@@ -1,24 +1,24 @@
-// Vega Portföy — merkezi site yapılandırması.
+// Test Klon Portföy — merkezi site yapılandırması.
 // Rapor §5 (URL yapısı) ve §6 (menü) ile birebir uyumlu. Header, Footer,
 // MegaMenu, sitemap.ts ve arama indeksinin tek kaynağı.
 
 export const site = {
-  name: "Vega Portföy",
-  legalName: "Vega Portföy Yönetimi A.Ş.",
-  domain: "vegaportfoy.com",
-  url: "https://vegaportfoy.com",
+  name: "Test Klon Portföy",
+  legalName: "Test Klon Portföy Yönetimi A.Ş.",
+  domain: "testklonportfoy.com",
+  url: "https://testklonportfoy.com",
   description:
-    "Vega Portföy Yönetimi A.Ş. — serbest fonlar, bireysel ve kurumsal portföy yönetimi ile alternatif yatırım çözümleri.",
+    "Test Klon Portföy Yönetimi A.Ş. — serbest fonlar, bireysel ve kurumsal portföy yönetimi ile alternatif yatırım çözümleri.",
   phone: "+90 212 000 00 00",
-  email: "info@vegaportfoy.com",
+  email: "info@testklonportfoy.com",
   address: "Seba Office Boulevard, Sarıyer / İstanbul",
   hours: "Hafta içi 09:00 – 18:00",
   founded: 2011,
   social: {
-    linkedin: "https://www.linkedin.com/company/vegaportfoy",
-    x: "https://x.com/vegaportfoy",
-    instagram: "https://instagram.com/vegaportfoy",
-    facebook: "https://facebook.com/vegaportfoy",
+    linkedin: "https://www.linkedin.com/company/testklonportfoy",
+    x: "https://x.com/testklonportfoy",
+    instagram: "https://instagram.com/testklonportfoy",
+    facebook: "https://facebook.com/testklonportfoy",
   },
   regulators: [
     { label: "SPK", href: "https://www.spk.gov.tr" },
@@ -37,7 +37,7 @@ export const mainNav: NavItem[] = [
     label: "Hakkımızda",
     href: "/hakkimizda",
     children: [
-      { label: "Kurumsal", href: "/hakkimizda/kurumsal", desc: "Vega Portföy'ü tanıyın" },
+      { label: "Kurumsal", href: "/hakkimizda/kurumsal", desc: "Test Klon Portföy'ü tanıyın" },
       { label: "Misyon & Vizyon", href: "/hakkimizda/misyon-vizyon", desc: "Değerlerimiz ve hedeflerimiz" },
       { label: "Ortaklık Yapısı", href: "/hakkimizda/ortaklik-yapisi", desc: "Sermaye ve pay yapısı" },
       { label: "Yönetim Kurulu", href: "/hakkimizda/yonetim-kurulu", desc: "Yönetim ekibimiz" },

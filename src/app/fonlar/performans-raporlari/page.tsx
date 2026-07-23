@@ -4,7 +4,7 @@ import { funds } from "@/lib/funds/funds";
 
 export const metadata: Metadata = {
   title: "Toplu Performans Raporları",
-  description: "Tüm Vega Portföy fonlarının dönemsel getirilerini tek tabloda karşılaştırın.",
+  description: "Tüm Test Klon Portföy fonlarının dönemsel getirilerini tek tabloda karşılaştırın.",
   alternates: { canonical: "/fonlar/performans-raporlari" },
 };
 

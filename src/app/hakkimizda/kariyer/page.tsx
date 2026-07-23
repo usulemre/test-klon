@@ -3,7 +3,7 @@ import { PageHero, Section, CTA } from "@/components/ui/primitives";
 
 export const metadata: Metadata = {
   title: "Kariyer",
-  description: "Vega Portföy'de açık pozisyonlar ve kariyer fırsatları.",
+  description: "Test Klon Portföy'de açık pozisyonlar ve kariyer fırsatları.",
   alternates: { canonical: "/hakkimizda/kariyer" },
 };
 
@@ -39,14 +39,14 @@ export default function Page() {
             </div>
           </div>
           <aside className="rounded-2xl bg-navy-900 p-6 text-white">
-            <h3 className="text-lg font-bold">Neden Vega Portföy?</h3>
+            <h3 className="text-lg font-bold">Neden Test Klon Portföy?</h3>
             <ul className="mt-4 space-y-2 text-sm text-navy-100">
               <li className="flex gap-2"><span className="text-gold-400">✓</span> Uzman ekiple çalışma</li>
               <li className="flex gap-2"><span className="text-gold-400">✓</span> Sürekli gelişim ve eğitim</li>
               <li className="flex gap-2"><span className="text-gold-400">✓</span> Rekabetçi yan haklar</li>
               <li className="flex gap-2"><span className="text-gold-400">✓</span> Hibrit çalışma imkânı</li>
             </ul>
-            <p className="mt-4 text-xs text-navy-300">Uygun pozisyon bulamadınız mı? CV&apos;nizi kariyer@vegaportfoy.com adresine iletin.</p>
+            <p className="mt-4 text-xs text-navy-300">Uygun pozisyon bulamadınız mı? CV&apos;nizi kariyer@testklonportfoy.com adresine iletin.</p>
           </aside>
         </div>
       </Section>

@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "İletişim",
-  description: "Vega Portföy ile iletişime geçin — telefon, e-posta, adres ve iletişim formu.",
+  description: "Test Klon Portföy ile iletişime geçin — telefon, e-posta, adres ve iletişim formu.",
   alternates: { canonical: "/iletisim" },
 };
 

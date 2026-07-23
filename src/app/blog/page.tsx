@@ -4,7 +4,7 @@ import { PageHero, Section } from "@/components/ui/primitives";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Vega Portföy blog — piyasa analizleri ve ekonomi köşesi.",
+  description: "Test Klon Portföy blog — piyasa analizleri ve ekonomi köşesi.",
   alternates: { canonical: "/blog" },
 };
 

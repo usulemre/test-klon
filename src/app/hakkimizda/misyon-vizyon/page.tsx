@@ -3,7 +3,7 @@ import { ContentPage } from "@/components/ui/ContentPage";
 
 export const metadata: Metadata = {
   title: "Misyon & Vizyon",
-  description: "Vega Portföy'ün misyonu, vizyonu ve temel değerleri.",
+  description: "Test Klon Portföy'ün misyonu, vizyonu ve temel değerleri.",
   alternates: { canonical: "/hakkimizda/misyon-vizyon" },
 };
 
