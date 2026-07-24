@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { allInstruments, round, seedSeries, type Instrument } from "./data";
+import { allInstruments, isMarketOpen, round, seedSeries, type Instrument } from "./data";
 
 export type Quote = {
   instrument: Instrument;
@@ -53,9 +53,9 @@ function tick(q: Quote): Quote {
   };
 }
 
-type MarketState = { quotes: Record<string, Quote> };
+type MarketState = { quotes: Record<string, Quote>; open: boolean };
 
-const MarketContext = createContext<MarketState>({ quotes: {} });
+const MarketContext = createContext<MarketState>({ quotes: {}, open: false });
 
 export function MarketProvider({ children }: { children: ReactNode }) {
   // İlk render sunucu ile aynı (seeded) → hydration güvenli
@@ -64,11 +64,21 @@ export function MarketProvider({ children }: { children: ReactNode }) {
     for (const inst of allInstruments) init[inst.symbol] = buildInitial(inst);
     return init;
   });
+  // SSR/ilk paint için güvenli varsayılan: kapalı. Mount sonrası gerçek duruma çekilir.
+  const [open, setOpen] = useState(false);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    // Simüle canlı fiyat akışı — her ~3sn'de bir tick.
+    // Fiyat akışı yalnızca Borsa İstanbul seansı açıkken tick atar;
+    // kapalıyken son kapanışta donar. Seans durumu her tick'te tazelenir.
+    const evaluate = () => {
+      const nowOpen = isMarketOpen();
+      setOpen((prev) => (prev === nowOpen ? prev : nowOpen));
+      return nowOpen;
+    };
+    evaluate();
     timer.current = setInterval(() => {
+      if (!evaluate()) return; // seans kapalı → tick yok
       setQuotes((prev) => {
         const next: Record<string, Quote> = {};
         for (const key in prev) next[key] = tick(prev[key]);
@@ -80,11 +90,15 @@ export function MarketProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return createElement(MarketContext.Provider, { value: { quotes } }, children);
+  return createElement(MarketContext.Provider, { value: { quotes, open } }, children);
 }
 
 export function useMarket() {
   return useContext(MarketContext);
+}
+
+export function useMarketOpen(): boolean {
+  return useContext(MarketContext).open;
 }
 
 export function useQuotes(symbols?: string[]): Quote[] {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { CTA, Section, SectionHeading, StatBadge } from "@/components/ui/primitives";
 import { MarketGrid, FundCardGrid } from "@/components/market/MarketGrid";
+import { MarketStatusBadge } from "@/components/market/MarketStatusBadge";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -64,9 +65,7 @@ export default function Home() {
           <div className="animate-fade-up rounded-3xl border border-white/10 bg-market-bg/60 p-4 backdrop-blur">
             <div className="mb-3 flex items-center justify-between px-1">
               <span className="text-sm font-semibold text-white">Piyasa Panosu</span>
-              <span className="flex items-center gap-1.5 text-[11px] text-market-muted">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-market-up" /> Gerçek zamanlı
-              </span>
+              <MarketStatusBadge className="flex items-center gap-1.5 text-[11px] text-market-muted" />
             </div>
             <MarketGrid symbols={["XU100", "XU030", "XU050", "XUKAT"]} />
           </div>

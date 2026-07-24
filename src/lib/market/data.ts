@@ -70,6 +70,38 @@ function hashSymbol(s: string): number {
   return h >>> 0;
 }
 
+// Borsa İstanbul pay piyasası seansı (TR saati, hafta içi ~10:00–18:00).
+// Endeksler yalnızca seans açıkken canlıdır; kapalıyken son kapanışta donar.
+const SESSION_OPEN_MIN = 10 * 60; // 10:00
+const SESSION_CLOSE_MIN = 18 * 60; // 18:00
+
+function istanbulParts(d = new Date()): { weekday: string; minutes: number } {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Europe/Istanbul",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(d);
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
+  return { weekday: get("weekday"), minutes: Number(get("hour")) * 60 + Number(get("minute")) };
+}
+
+export function isMarketOpen(d = new Date()): boolean {
+  const { weekday, minutes } = istanbulParts(d);
+  const weekday_ = weekday !== "Sat" && weekday !== "Sun";
+  return weekday_ && minutes >= SESSION_OPEN_MIN && minutes < SESSION_CLOSE_MIN;
+}
+
+// Kapalıyken rozette gösterilecek "son kapanış" etiketi (TR saatiyle gün + tarih).
+export function lastSessionLabel(d = new Date()): string {
+  return new Intl.DateTimeFormat("tr-TR", {
+    timeZone: "Europe/Istanbul",
+    day: "2-digit",
+    month: "2-digit",
+  }).format(d);
+}
+
 export function round(n: number, digits = 2): number {
   const f = 10 ** digits;
   return Math.round(n * f) / f;
