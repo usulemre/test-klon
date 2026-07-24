@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import type { Fund, FundDoc } from "@/lib/funds/funds";
-import { fundPerformanceSeries } from "@/lib/funds/funds";
-import { useQuote } from "@/lib/market/useLivePrices";
+import { fundNavSeries, fundPerformanceSeries, fundPriceDate } from "@/lib/funds/funds";
 import { formatValue } from "@/lib/market/data";
 import { AreaChart } from "@/components/market/AreaChart";
 import { Sparkline } from "@/components/market/Sparkline";
@@ -14,14 +13,14 @@ type Tab = (typeof tabs)[number];
 
 export function FundDetail({ fund }: { fund: Fund }) {
   const [tab, setTab] = useState<Tab>("Performans");
-  const quote = useQuote(fund.symbol);
-  const up = (quote?.changePct ?? 0) >= 0;
+  const up = fund.dailyChangePct >= 0;
   const perf = fundPerformanceSeries(fund);
+  const navSeries = fundNavSeries(fund);
   const color = up ? "var(--color-market-up)" : "var(--color-market-down)";
 
   return (
     <div>
-      {/* Canlı fiyat başlığı */}
+      {/* Pay fiyatı başlığı — fon fiyatları günlük belirlenir */}
       <div className="rounded-2xl border border-navy-100 bg-white p-6 shadow-card">
         <div className="flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-4">
@@ -29,16 +28,17 @@ export function FundDetail({ fund }: { fund: Fund }) {
               {fund.code}
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wide text-navy-400">Güncel Pay Fiyatı (canlı)</p>
+              <p className="text-xs uppercase tracking-wide text-navy-400">Güncel Pay Fiyatı</p>
               <p className="font-mono text-2xl font-bold tabular-nums text-navy-900">
-                ₺{quote ? formatValue(quote.value, "₺") : "—"}
+                ₺{formatValue(fund.navPrice, "₺")}
               </p>
               <p className="text-sm font-semibold tabular-nums" style={{ color }}>
-                {up ? "▲" : "▼"} {quote ? quote.changePct.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "0,00"}% bugün
+                {up ? "▲" : "▼"} {fund.dailyChangePct.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}% günlük
               </p>
+              <p className="mt-1 text-xs text-navy-400">{fundPriceDate} değerlemesi · fiyatlar her iş günü belirlenir</p>
             </div>
           </div>
-          {quote && <Sparkline data={quote.series} width={160} height={56} color={color} />}
+          <Sparkline data={navSeries} width={160} height={56} color={color} />
         </div>
 
         {/* Getiri özeti */}

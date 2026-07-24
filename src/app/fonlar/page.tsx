@@ -5,7 +5,7 @@ import { funds } from "@/lib/funds/funds";
 
 export const metadata: Metadata = {
   title: "Fonlar",
-  description: "Test Klon Portföy serbest ve hisse senedi fonları — canlı pay fiyatları, performans ve dokümanlar.",
+  description: "Test Klon Portföy serbest ve hisse senedi fonları — günlük pay fiyatları, performans ve dokümanlar.",
   alternates: { canonical: "/fonlar" },
 };
 
@@ -14,7 +14,7 @@ export default function FonlarPage() {
     <>
       <PageHero
         title="Fonlarımız"
-        desc="Serbest ve hisse senedi fonlarımızın anlık pay fiyatlarını, performansını ve dokümanlarını tek yerden inceleyin."
+        desc="Serbest ve hisse senedi fonlarımızın her iş günü açıklanan pay fiyatlarını, performansını ve dokümanlarını tek yerden inceleyin."
         pathname="/fonlar"
       >
         <div className="mt-5 flex flex-wrap gap-3">
@@ -56,7 +56,8 @@ export default function FonlarPage() {
         </div>
 
         <p className="mt-6 text-xs text-navy-400">
-          Fon fiyatları bu demoda simüle edilmiştir. Geçmiş performans gelecek getiri için garanti teşkil etmez.
+          Fon pay fiyatları her iş günü, bir önceki günün sonuçlarına göre belirlenir; anlık/canlı değildir.
+          Buradaki değerler bu demoda simüle edilmiştir. Geçmiş performans gelecek getiri için garanti teşkil etmez.
           Fonlar yalnızca nitelikli yatırımcılara yöneliktir.
         </p>
       </Section>

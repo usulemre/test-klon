@@ -5,8 +5,8 @@ import { funds } from "@/lib/funds/funds";
 import { FundPriceRow, MiniPriceChart } from "@/components/market/MiniPriceChart";
 
 // Fonlar mega menüsü — rapor §6: 3 sütun.
-// Sütun 1: fon listesi + canlı performans · Sütun 2: ortak dokümanlar ·
-// Sütun 3: "Fon Karşılaştır" CTA + canlı fiyat mini-grafik.
+// Sütun 1: fon listesi + günlük değişim · Sütun 2: ortak dokümanlar ·
+// Sütun 3: "Fon Karşılaştır" CTA + günlük pay fiyatı mini-grafik.
 export function MegaMenu() {
   return (
     <div className="grid w-[720px] grid-cols-3 gap-6 p-6">
@@ -45,9 +45,9 @@ export function MegaMenu() {
         </ul>
       </div>
 
-      {/* Sütun 3 — Karşılaştır CTA + canlı fiyat grafiği */}
+      {/* Sütun 3 — Karşılaştır CTA + günlük pay fiyatı grafiği */}
       <div className="flex flex-col gap-3">
-        <p className="text-[11px] font-bold uppercase tracking-wider text-navy-400">Anlık Fiyat</p>
+        <p className="text-[11px] font-bold uppercase tracking-wider text-navy-400">Günlük Pay Fiyatı</p>
         <MiniPriceChart symbol="ANK" />
         <Link
           href="/fonlar/karsilastir"

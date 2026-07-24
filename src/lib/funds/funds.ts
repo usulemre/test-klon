@@ -15,6 +15,8 @@ export type Fund = {
   riskLabel: string;
   inceptionDate: string;
   currency: string;
+  navPrice: number; // güncel birim pay fiyatı (bir önceki iş günü kapanışına göre belirlenir)
+  dailyChangePct: number; // bir önceki güne göre günlük değişim (%)
   aum: string;
   managementFee: string;
   minInvestment: string;
@@ -68,6 +70,8 @@ export const funds: Fund[] = [
     riskLabel: "Orta",
     inceptionDate: "12.03.2018",
     currency: "TRY",
+    navPrice: 12.4832,
+    dailyChangePct: 0.42,
     aum: "2,4 Milyar ₺",
     managementFee: "%1,90 (yıllık)",
     minInvestment: "Nitelikli yatırımcı",
@@ -111,6 +115,8 @@ export const funds: Fund[] = [
     riskLabel: "Orta-Düşük",
     inceptionDate: "05.09.2019",
     currency: "TRY",
+    navPrice: 9.7415,
+    dailyChangePct: 0.28,
     aum: "1,7 Milyar ₺",
     managementFee: "%1,50 (yıllık)",
     minInvestment: "Nitelikli yatırımcı",
@@ -147,6 +153,8 @@ export const funds: Fund[] = [
     riskLabel: "Yüksek",
     inceptionDate: "22.01.2020",
     currency: "TRY",
+    navPrice: 21.0673,
+    dailyChangePct: 0.86,
     aum: "980 Milyon ₺",
     managementFee: "%2,20 (yıllık)",
     minInvestment: "Nitelikli yatırımcı",
@@ -183,6 +191,8 @@ export const funds: Fund[] = [
     riskLabel: "En Yüksek",
     inceptionDate: "08.11.2021",
     currency: "TRY",
+    navPrice: 6.3128,
+    dailyChangePct: -0.19,
     aum: "1,3 Milyar ₺",
     managementFee: "%2,40 (yıllık)",
     minInvestment: "Nitelikli yatırımcı",
@@ -209,11 +219,42 @@ export const funds: Fund[] = [
   },
 ];
 
+// Fon pay fiyatları canlı değildir; her iş günü, bir önceki günün sonuçlarına
+// göre belirlenir. Aşağıdaki tarih, gösterilen fiyatların değerleme günüdür.
+export const fundPriceDate = "23.07.2026";
+
 export function getFund(slug: string): Fund | undefined {
   return funds.find((f) => f.slug === slug);
 }
 
+export function getFundBySymbol(symbol: string): Fund | undefined {
+  return funds.find((f) => f.symbol === symbol);
+}
+
 export const fundSlugs = funds.map((f) => f.slug);
+
+// Son ~24 iş gününün pay fiyatı serisi (sparkline için). Deterministik: sunucu
+// ile client aynı seriyi üretir. Seri, güncel navPrice ile biter.
+export function fundNavSeries(fund: Fund, points = 24): number[] {
+  let h = 0;
+  for (let i = 0; i < fund.symbol.length; i++) h = (h * 31 + fund.symbol.charCodeAt(i)) >>> 0;
+  const rand = () => {
+    h = (h * 1103515245 + 12345) & 0x7fffffff;
+    return h / 0x7fffffff;
+  };
+  // Aylık getiriden yaklaşık günlük drift türet
+  const monthly = fund.returns.find((r) => r.period === "1 Ay")?.value ?? 3;
+  const drift = (monthly / 100 / 22) * fund.navPrice;
+  const series: number[] = [];
+  let v = fund.navPrice - drift * points;
+  for (let i = 0; i < points; i++) {
+    const noise = (rand() - 0.5) * 2 * fund.navPrice * 0.004;
+    v = Math.max(v + drift + noise, fund.navPrice * 0.5);
+    series.push(Math.round(v * 10000) / 10000);
+  }
+  series[series.length - 1] = fund.navPrice;
+  return series;
+}
 
 // Fon performans grafiği için pseudo seri (kümülatif getiri eğrisi)
 export function fundPerformanceSeries(fund: Fund, points = 60): number[] {

@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   description:
-    "Test Klon Portföy Yönetimi — serbest fonlar, bireysel ve kurumsal portföy yönetimi, alternatif yatırımlar. Canlı fon fiyatları ve piyasa verileri.",
+    "Test Klon Portföy Yönetimi — serbest fonlar, bireysel ve kurumsal portföy yönetimi, alternatif yatırımlar. Günlük fon fiyatları ve canlı piyasa verileri.",
   alternates: { canonical: "/" },
 };
 
@@ -60,10 +60,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Canlı piyasa kartları (referans görsel) */}
+          {/* Piyasa panosu — ana sayfa sabit dashboard (BIST endeksleri, canlı) */}
           <div className="animate-fade-up rounded-3xl border border-white/10 bg-market-bg/60 p-4 backdrop-blur">
             <div className="mb-3 flex items-center justify-between px-1">
-              <span className="text-sm font-semibold text-white">Canlı Piyasa</span>
+              <span className="text-sm font-semibold text-white">Piyasa Panosu</span>
               <span className="flex items-center gap-1.5 text-[11px] text-market-muted">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-market-up" /> Gerçek zamanlı
               </span>
@@ -86,7 +86,7 @@ export default function Home() {
       {/* FONLAR */}
       <Section className="py-16">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading eyebrow="Fonlarımız" title="Canlı fon fiyatları" desc="Serbest ve hisse senedi fonlarımızın anlık pay fiyatları ve performansı." />
+          <SectionHeading eyebrow="Fonlarımız" title="Günlük fon fiyatları" desc="Serbest ve hisse senedi fonlarımızın her iş günü açıklanan pay fiyatları ve performansı." />
           <CTA href="/fonlar/karsilastir" variant="outline">Fonları Karşılaştır</CTA>
         </div>
         <FundCardGrid />
@@ -136,14 +136,22 @@ export default function Home() {
 
       {/* CTA ŞERİDİ */}
       <Section className="py-16">
-        <div className="overflow-hidden rounded-3xl bg-navy-900 px-8 py-12 text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">Portföyünüzü uzman ekibimizle konuşun</h2>
-          <p className="mx-auto mt-3 max-w-xl text-navy-200">
-            Size en uygun yatırım stratejisini birlikte belirleyelim. Ücretsiz ön görüşme talep edin.
-          </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <CTA href="/yatirimci-ol" variant="gold">Hemen Başvur</CTA>
-            <CTA href="/iletisim" variant="dark">İletişime Geç</CTA>
+        <div className="relative overflow-hidden rounded-3xl bg-navy-900 px-8 py-14 text-center">
+          {/* Arka plan dekoru — her iki yandan simetrik altın parıltı + ince ızgara */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_120%_at_0%_0%,rgba(201,162,75,0.20),transparent),radial-gradient(50%_120%_at_100%_100%,rgba(201,162,75,0.16),transparent)]" />
+          <div className="pointer-events-none absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:40px_40px]" />
+          <div className="relative">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-gold-300">
+              Ücretsiz ön görüşme
+            </span>
+            <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">Portföyünüzü uzman ekibimizle konuşun</h2>
+            <p className="mx-auto mt-3 max-w-xl text-navy-200">
+              Size en uygun yatırım stratejisini birlikte belirleyelim. Hemen üye olun ya da bizimle iletişime geçin.
+            </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
+              <CTA href="/yatirimci-ol" variant="gold">Hemen Başvur</CTA>
+              <CTA href="/iletisim" variant="dark">İletişime Geç</CTA>
+            </div>
           </div>
         </div>
       </Section>

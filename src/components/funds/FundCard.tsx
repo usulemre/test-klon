@@ -1,17 +1,14 @@
-"use client";
-
 import Link from "next/link";
 import type { Fund } from "@/lib/funds/funds";
-import { riskColor } from "@/lib/funds/funds";
-import { useQuote } from "@/lib/market/useLivePrices";
+import { fundNavSeries, fundPriceDate, riskColor } from "@/lib/funds/funds";
 import { formatValue } from "@/lib/market/data";
 import { Sparkline } from "@/components/market/Sparkline";
 
 export function FundCard({ fund }: { fund: Fund }) {
-  const quote = useQuote(fund.symbol);
-  const up = (quote?.changePct ?? 0) >= 0;
+  const up = fund.dailyChangePct >= 0;
   const ybb = fund.returns.find((r) => r.period === "YBB")?.value ?? 0;
   const color = up ? "var(--color-market-up)" : "var(--color-market-down)";
+  const series = fundNavSeries(fund);
 
   return (
     <div className="group flex flex-col rounded-2xl border border-navy-100 bg-white p-5 shadow-card transition-shadow hover:shadow-lg">
@@ -40,16 +37,17 @@ export function FundCard({ fund }: { fund: Fund }) {
 
       <div className="mt-4 flex items-end justify-between">
         <div>
-          <p className="text-[11px] uppercase tracking-wide text-navy-400">Pay Fiyatı (canlı)</p>
+          <p className="text-[11px] uppercase tracking-wide text-navy-400">Pay Fiyatı</p>
           <p className="font-mono text-lg font-semibold tabular-nums text-navy-900">
-            ₺{quote ? formatValue(quote.value, fund.currency === "TRY" ? "₺" : "") : "—"}
+            ₺{formatValue(fund.navPrice, "₺")}
           </p>
           <p className="text-xs font-semibold tabular-nums" style={{ color }}>
-            {up ? "▲" : "▼"} {quote ? quote.changePct.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "0,00"}% bugün
+            {up ? "▲" : "▼"} {fund.dailyChangePct.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}% günlük
           </p>
         </div>
-        {quote && <Sparkline data={quote.series} width={90} height={40} color={color} />}
+        <Sparkline data={series} width={90} height={40} color={color} />
       </div>
+      <p className="mt-1 text-[10px] text-navy-400">{fundPriceDate} değerlemesi</p>
 
       <div className="mt-4 grid grid-cols-2 gap-2 border-t border-navy-50 pt-4 text-center">
         <div>
